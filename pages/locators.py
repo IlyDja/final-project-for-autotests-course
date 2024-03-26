@@ -12,3 +12,4 @@ class LoginPageLocators:
 class ProductPageLocators:
     ADD_TO_BUSKET_LINK = (By.CLASS_NAME, 'btn-add-to-basket')
     #SUCCESSFULL_ADDED_MESSAGE = (By.)
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, '.alert-success')
