@@ -1,9 +1,10 @@
 from pages.product_page import ProductPage
+from pages.busket_page import BusketPage
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 import pytest
-from pages.locators import ProductPageLocators
+from pages.locators import ProductPageLocators, BusketPageLocators
 
 
 # links = ["http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0",
@@ -19,7 +20,6 @@ from pages.locators import ProductPageLocators
 links = ["http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0"]
 
 # [f"http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer{n}" for n in range(0, 10)]
-# @pytest.mark.parametrize('link_', links)
 @pytest.mark.parametrize('link_', links)
 def test_guest_can_add_product_to_basket(browser, link_):
     link = link_
@@ -73,8 +73,17 @@ def test_guest_should_see_login_link_on_product_page(browser):
     page.should_be_login_link()
 
 
-def test_guest_can_go_to_login_page_from_product_page (browser):
+def test_guest_can_go_to_login_page_from_product_page(browser):
     link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
     page = ProductPage(browser, link)
     page.open()
     page.go_to_login_page()
+
+
+def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
+    link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
+    page = ProductPage(browser, link)
+    page.open()
+    page.go_to_busket()
+    assert BusketPage.busket_is_empty(browser)
+    assert browser.find_element(*BusketPageLocators.EMPTY_BUSKET_PARAGRAPH)
