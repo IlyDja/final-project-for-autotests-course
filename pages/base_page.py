@@ -6,9 +6,9 @@ from pages.locators import ProductPageLocators, BasePageLocators
 
 
 class BasePage:
-    def __init__(self, browser, url, timeout=10):
+    def __init__(self, browser, timeout=10):
         self.browser = browser
-        self.url = url
+        self.url = "http://selenium1py.pythonanywhere.com"
         self.browser.implicitly_wait(timeout)
 
     def open(self):

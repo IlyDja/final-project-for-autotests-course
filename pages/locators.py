@@ -18,7 +18,7 @@ class ProductPageLocators:
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
-    BUSKET_LINK = (By.CSS_SELECTOR, '.btn-group a')
+    BASKET_LINK = (By.CSS_SELECTOR, '.btn-group a')
     USER_ICON = (By.CSS_SELECTOR, ".icon-user")
 
 
