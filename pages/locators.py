@@ -19,9 +19,10 @@ class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
     BUSKET_LINK = (By.CSS_SELECTOR, '.btn-group a')
+    USER_ICON = (By.CSS_SELECTOR, ".icon-user")
 
 
-class BusketPageLocators():
-    EMPTY_BUSKET_PARAGRAPH = (By.XPATH, '//*[@id="content_inner"]/p')
-    BUSKET_IS_EMPTY_STATUS = ("tag name", 'h2')
+class BasketPageLocators():
+    EMPTY_BASKET_PARAGRAPH = (By.XPATH, '//*[@id="content_inner"]/p')
+    BASKET_IS_EMPTY_STATUS = ("tag name", 'h2')
     # LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
